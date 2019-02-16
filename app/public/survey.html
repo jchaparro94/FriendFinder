@@ -120,7 +120,7 @@
 
 						<div class="input-field col s12">
 							<h3>Question 7</h3>
-							<h5>We are along in the universe.</h5>
+							<h5>We are alone in the universe.</h5>
 							<select id="question7">
 								<option value="" disabled selected>Choose your option</option>
 								<option value="1">1 (Strongly Disagree)</option>
@@ -172,7 +172,7 @@
 
 						<!-- Survey Submit Button -->
 						<div>
-                            <button type="submitButton" class="btn btn-primary" id="submit-Button">Submit</button>
+               <button type="submitButton" class="btn btn-primary" id="submitBttn" data-toggle="modal" data-target="#specificModal">Submit</button>
 						</div>
 					</div>
 				</div>
@@ -182,14 +182,14 @@
    
     <footer>
         <nav class="nav">
-            <a class="nav-link" href="/api/table">API Friends List</a>
-            <a class="nav-link" href="https://github.com/jchaparro94">GitHub Repo</a>
+            <a class="nav-link" href="../data/friends">API Friends List</a>
+            <a class="nav-link" href="https://github.com/jchaparro94/FriendFinder">GitHub Repo</a>
         </nav>
     </footer>
 </div>
 
 <!-- Modal -->
-    <!-- #specificModal - Modal that opens when user clicks on specific job -->
+    <!-- #specificModal - Modal that opens when user clicks on submit -->
     <div class="modal fade" id="specificModal" tabindex="-1" role="dialog" aria-labelledby="specificModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -212,7 +212,7 @@
         </div>
 
 				<script type="text/javascript">
-					$("#submit-Button").on("click", function(event) {
+					$("#submitBttn").on("click", function(event) {
 						event.preventDefault();
 						// Validating form
 						var valid = true;
@@ -223,8 +223,8 @@
 						}
 						if(valid === true) {
 							let newUser = {
-								name: $("#name").val().trim(),
-								photo: $("#photo").val().trim(),
+								name: $("#name").val(),//trim(),
+								photo: $("#photo").val(),//trim(),
 								scores: [
 									$("#question1").val(),
 									$("#question2").val(),
